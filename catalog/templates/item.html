@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{{ item.item_name }}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<div class="header">
+    <a class="buttons" href="{% url 'index' %}">menu</a>
+    <a class="buttons" id="cont">search</a>
+    <span>Not narko shop</span>
+    <a class="buttons" href="{% url 'cart:cart_detail' %}">basket</a>
+    <a class="buttons" href="{% url 'login' %}">logout</a>
+</div>
+<hr>
+<div class="item_page_menu">
+    <a class="go_home" href="{% url 'index' %}"></a>
+    <div class="item_page">
+    <div><img class="box_item" src="{% static 'img/box.png' %}"></div>
+    <div class="name_item"><p>{{ item.item_name }}</p></div>
+    <div class="cost_item">Cost: {{ item.item_cost }}</div>
+    <div class="descr_item">{{ item.item_descr }}</div>
+    <div>
+        <form action="{% url 'cart:cart_add' item.id %}" method="post">
+            {% csrf_token %}
+            <input class="buy_buttn" type="submit" value="Buy">
+        </form>
+    </div>
+    </div>
+    <div class="comments">
+        <div>Comments:</div>
+        <div class="comment"></div>
+        <textarea type="text" class="comm_int"></textarea><input type="submit" class="comm_butt" value="Add comment"></div>
+    </div>
+</div>
+
+</body>
+</html>

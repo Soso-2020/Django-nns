@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="header">
+        <a class="buttons">#####</a>
+        <a class="buttons" id="cont">#####</a>
+        <span>Not narko shop</span>
+        <a class="buttons" id="about">#####</a>
+        <a class="buttons">#####</a>
+    </div>
+    <hr>
+    <div class="field">
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            {{ form.as_table }}
+            <div  class="input">
+                <input type="text" id="login" name="login" required minlength="1" maxlength="20" size="20" placeholder="Login:">
+            </div>
+            <div  class="input">
+                <input type="password" id="password" name="passw" required minlength="1" maxlength="20" size="20" placeholder="Password:">
+            </div>
+            <div>
+                <input class="buttn" type="submit" name="sbmt" value="Login">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

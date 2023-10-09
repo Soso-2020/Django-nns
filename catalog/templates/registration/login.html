@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="header">
+        <a class="buttons">#####</a>
+        <a class="buttons" id="cont">#####</a>
+        <span>Not narko shop</span>
+        <a class="buttons" id="about">#####</a>
+        <a class="buttons">#####</a>
+    </div>
+    <hr>
+    <div class="field">
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            <div class="input">
+                <input type="text" id="login" name="username" required minlength="1" maxlength="20" size="20" placeholder="Login:">
+            </div>
+            <div class="input">
+                <input type="password" id="password" name="password" required minlength="1" maxlength="20" size="20" placeholder="Password:">
+            </div>
+            <div>
+                <input class="buttn" type="submit" name="sbmt" value="Login">
+            </div>
+            <div class="signup">
+                <a id="signup" type="submit" href="{% url 'register' %}" name="reg">Register</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

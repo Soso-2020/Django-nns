@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<div class="header">
+    <a class="buttons" href="{% url 'index' %}">menu</a>
+    <a class="buttons" id="cont">search</a>
+    <span>Not narko shop</span>
+    <a class="buttons" href="{% url 'cart:cart_detail' %}">basket</a>
+    <a class="buttons" href="{% url 'login' %}">logout</a>
+</div>
+<hr>
+<div class="items">
+    {% for i in item_name %}
+    <a class="item" href="{% url 'item_item' i.id %}">
+        <div><img class="box" src="{% static 'img/box.png' %}"></div>
+        <div class="i_name"><p>{{ i.item_name }}</p></div>
+        <div class="cost">{{ i.item_cost }}</div>
+        <div class="descr">{{ i.item_descr }}</div>
+    </a>
+    {% endfor %}
+</div>
+</body>
+</html>

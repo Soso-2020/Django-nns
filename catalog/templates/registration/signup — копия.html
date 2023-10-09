@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="header">
+        <a class="buttons">#####</a>
+        <a class="buttons" id="cont">#####</a>
+        <span>Not narko shop</span>
+        <a class="buttons" id="about">#####</a>
+        <a class="buttons">#####</a>
+    </div>
+    <hr>
+    <div class="field">
+        <form method="POST" action="{% url 'login' %}">
+            {% csrf_token %}
+            <div class="input">
+                <input type="text" id="login" name="username" required minlength="1" maxlength="20" size="20" placeholder="Login:">
+            </div>
+            <div class="input">
+                <input type="password" id="password1" name="password1" required minlength="1" maxlength="20" size="20" placeholder="Password:">
+            </div>
+            <div class="input">
+                <input type="password" id="password2" name="password2" required minlength="1" maxlength="20" size="20" placeholder="Repeat password:">
+            </div>
+            <div>
+                <input class="buttn" type="submit" name="sbmt" value="Register">
+                <div class="signup">
+                <a id="signup" href="{% url 'login' %}" name="log">Login</a>
+                </div>
+                 <form action="." method="post">
+        {{ user_form.as_p }}
+        {% csrf_token %}
+        <p><input type="submit" value="Create my account"></p>
+    </form>
+            </div></form>
+</body>
+</html>
